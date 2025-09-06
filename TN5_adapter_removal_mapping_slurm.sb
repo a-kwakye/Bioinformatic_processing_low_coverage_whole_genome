@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+#SBATCH --job-name=map
+#SBATCH --ntasks-per-node=96
+#SBATCH --nodes=1
+#SBATCH --time=48:00:00
+#SBATCH -p hbm-extended-96core
+#SBATCH --output=%j.map.out
+#SBATCH --error=%j.map.err
+
+module load anaconda/2
+
+python3  TN5_library_adapter_removal_mapping_MP.py 
