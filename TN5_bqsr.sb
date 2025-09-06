@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+#SBATCH --job-name=bqsr
+#SBATCH --ntasks-per-node=40
+#SBATCH --nodes=1
+#SBATCH --time=168:00:00
+#SBATCH -p extended-40core
+#SBATCH --output=%j.bqsr.out
+#SBATCH --error=%j.bqsr.err
+
+module load anaconda/2
+
+python TN5_BQSR.py ME_bam.list 10
