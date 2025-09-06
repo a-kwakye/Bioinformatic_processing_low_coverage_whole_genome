@@ -46,7 +46,7 @@ def process_TN5(x, TN5_sample_list, output):
     Popen.wait(Popen('AdapterRemoval --file1 ' + readfiledir+TN5_dict[chrom]+'/' +TN5_dict[chrom]+'_L1_1.fq.gz --file2 '+ readfiledir+TN5_dict[chrom]+'/' +TN5_dict[chrom]+'_L1_2.fq.gz  --basename ' + outdir+TN5_dict[chrom] + ' --trimns --trimqualities --collapse --gzip', shell=True))
     
     Popen.wait(Popen('bwa mem -M -t 1 ' + ref + ' ' + outdir+TN5_dict[chrom] + '.pair1.truncated.gz ' +outdir+TN5_dict[chrom] + '.pair2.truncated.gz | samtools view -Sb - > ' + bamdir+TN5_dict[chrom] + '_PE.bam', shell=True))
-    Popen.wait(Popen('bwa mem -M -t 1 ' + ref + ' '+ outdir+TN5_dict[chrom] + '.collapsed.gz | samtools view -Sb - > ' + bamdirr+TN5_dict[chrom] + '_ME.bam', shell=True))
+    Popen.wait(Popen('bwa mem -M -t 1 ' + ref + ' '+ outdir+TN5_dict[chrom] + '.collapsed.gz | samtools view -Sb - > ' + bamdir+TN5_dict[chrom] + '_ME.bam', shell=True))
     Popen.wait(Popen('bwa mem -M -t 1 ' + ref + ' ' + outdir+TN5_dict[chrom] + '.collapsed.truncated.gz | samtools view -Sb - > ' + bamdir+TN5_dict[chrom] + '_MEt.bam', shell=True))
     
     output.put('finished ' + TN5_dict[chrom])
